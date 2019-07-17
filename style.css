@@ -1,0 +1,398 @@
+/*
+Theme Name: Skyeng
+Author: IT Forge Team
+Description: Forms for Skyeng
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: theme
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/*----------------------------------------------------fonts */
+@import "fonts/fonts.css";
+/*-----------------------------------------------------styles */
+:root {
+    --sky-violet: #8145F4;
+    --sky-gold: #FFDC62;
+    --sky-red: #FF0000;
+    --sky-green: #009C4F;
+    --sky-blue: #5700FF;
+    --sky-grey: #EEEEEE;
+    --sky-svg: #FFFFFF;
+    --sky-overlay_text: #FFFFFF;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: 100%;
+    background-color: #f9f9f9;
+}
+.site_content{
+    max-width: 1366px;
+    margin: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subscribe_form {
+    max-width: 652px;
+    height: 344px;
+    padding: 41px 62px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.subscribe_form.holmes{
+    background-image: url('assets/full_img.png');
+    color: #FFF;
+}
+.subscribe_form.blue_border{
+    background-color: var( --sky-grey );
+    box-shadow: 8px 8px 0 #5700FF;
+}
+
+.subscribe_form .title {
+    font-family: 'Museo Sans Cyrl 700', sans-serif;
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+
+.subscribe_form .sub_title{
+    font-family: 'Museo Sans Cyrl 100', sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 36px;
+    max-width: 436px;
+}
+
+.input_area {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.form_field {
+    margin-right: 5px;
+    border: solid 2px var( --sky-violet );
+    padding: 10px 11px 9px 17px;
+    font-size: 14px;
+    font-family: 'Museo Sans Cyrl 300', sans-serif;
+    color: #000;
+    margin-bottom: 10px;
+    outline: none;
+    transition: 0.4s;
+}
+.form_field:focus {
+    box-shadow: 0 0 8px var( --sky-violet );
+}
+
+::-webkit-input-placeholder {
+    color: #000;
+}
+::-moz-placeholder {
+    color: #000;
+}
+:-ms-input-placeholder {
+    color: #000;
+}
+:-moz-placeholder {
+    color: #000;
+}
+
+.subscribe_form.blue_border .form_field{
+    border: solid 2px var( --sky-blue );
+}
+
+.submit_button {
+    background-color: var(--sky-violet);
+    font-size: 14px;
+    font-family: 'Museo Sans Cyrl 500', sans-serif;
+    padding: 10px 32px 9px;
+    border: solid 2px var( --sky-violet );
+    text-align: center;
+    position: relative;
+    margin-bottom: 20px;
+    color: #FFF;
+    cursor: pointer;
+    transition: 0.4s;
+    opacity: 0.8;
+}
+
+.submit_button:hover {
+    opacity: 1;
+}
+
+.submit_button .text {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.4s;
+}
+
+.submit_button .loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate( -50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 10;
+}
+
+.submit_button .loader svg {
+    width: 24px;
+    height: 24px;
+    fill: var( --sky-svg );
+}
+
+.submit_button.loading .text {
+    visibility: hidden;
+    opacity: 0;
+}
+.submit_button.loading .loader {
+    visibility: visible;
+    opacity: 1;
+}
+
+.submit_button.loading .loader svg {
+    animation: spin 0.8s infinite linear;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.subscribe_form.blue_border .submit_button {
+    background-color: var( --sky-blue );
+    border: solid 2px var( --sky-blue );
+}
+
+.submit_button_cont .notation {
+    font-size: 12px;
+    font-family: 'Museo Sans Cyrl 500', sans-serif;
+    text-align: center;
+    cursor: default;
+}
+
+.submit_button_cont a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.submit_button_cont a:hover{
+    color: var( --sky-gold );
+}
+.subscribe_form.blue_border .submit_button_cont a:hover{
+    color: var( --sky-violet );
+}
+
+.submit_button:after{
+    content: '';
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    border: 2px solid var(--sky-violet);
+    top: 8px;
+    left: 8px;
+}
+.subscribe_form.blue_border .submit_button:after{
+    content: '';
+    border: 2px solid var(--sky-blue);
+}
+/** error styles **/
+
+.form_field.error,
+.subscribe_form.blue_border .form_field.error {
+    border-color: var( --sky-red );
+}
+
+.input_comment{
+    cursor: default;
+    font-family: 'Museo Sans Cyrl 300',sans-serif;
+    font-size: 14px;
+    color: var( --sky-gold );
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s;
+}
+
+.subscribe_form.blue_border .input_comment{
+    color: var( --sky-red );
+}
+
+.input_cont.error .input_comment {
+    opacity: 1;
+    visibility: visible;
+}
+
+.input_cont.error .form_field {
+    border-color: var( --sky-red );
+}
+
+/** success styles **/
+
+.input_cont.success .input_comment{
+    opacity: 1;
+    visibility: visible;
+}
+
+.input_cont.success .form_field {
+    border-color: var( --sky-green );
+}
+
+/** Overlay **/
+
+.subscribe_form .overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000000cc;
+    padding: 16px;
+}
+
+.subscribe_form .overlay.show {
+    display: flex;
+}
+
+.subscribe_form .overlay .close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    transition: 0.4s;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.subscribe_form .overlay .close:hover {
+    opacity: 1;
+}
+
+.subscribe_form .overlay .close svg {
+    width: 24px;
+    height: 24px;
+    fill: var( --sky-svg );
+}
+
+.subscribe_form .overlay .message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.subscribe_form .overlay .message .title {
+    font-size: 36px;
+    color: var( --sky-overlay_text );
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.subscribe_form .overlay .message .text {
+    font-size: 24px;
+    color: var( --sky-overlay_text );
+    text-align: center;
+}
+
+.subscribe_form .overlay .icon_success,
+.subscribe_form .overlay .icon_error {
+    display: none;
+    margin-bottom: 16px;
+}
+
+.subscribe_form .overlay .icon_success svg,
+.subscribe_form .overlay .icon_error svg {
+    width: 60px;
+    height: 60px;
+}
+
+.subscribe_form .overlay .icon_success svg {
+    fill: var( --sky-green );
+}
+
+.subscribe_form .overlay .icon_error svg {
+    fill: var( --sky-red );
+}
+
+.subscribe_form .overlay.success .icon_success {
+    display: flex;
+}
+
+.subscribe_form .overlay.error .icon_error {
+    display: flex;
+}
+
+/** mobile styles **/
+
+@media screen and (max-width:680px){
+    .input_area{
+        flex-direction: column;
+        align-items: center;
+    }
+    .subscribe_form .title{
+        font-size: 26px;
+        line-height: 32px;
+        margin-bottom: 10px;
+    }
+    .subscribe_form .sub_title{
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 24px;
+    }
+    .subscribe_form{
+        padding: 20px 24px;
+        height: 440px;
+        max-width: 335px;
+    }
+    .subscribe_form.holmes{
+        background-image: url('assets/small_img.png');
+        background-size: cover;
+        background-position: center;
+    }
+    .submit_button_cont a {
+        color: var( --sky-gold );
+    }
+    .subscribe_form.blue_border .submit_button_cont a{
+        color: var( --sky-violet );
+    }
+
+    .form_field {
+        width: 254px;
+        margin-right: 0;
+        margin-bottom: 22px;
+    }
+    .submit_button {
+        width: 218px;
+    }
+    .submit_button_cont .notation{
+        font-size: 10px;
+        line-height: 12px;
+        max-width: 110px;
+        margin: 0 auto;
+    }
+    .input_cont {
+        position: relative;
+    }
+
+    .input_comment {
+        position: absolute;
+        bottom: 4px;
+    }
+
+}
